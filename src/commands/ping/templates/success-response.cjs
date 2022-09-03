@@ -3,7 +3,7 @@ const { EmbedBuilder } = require('discord.js');
 module.exports.getSuccessResponseMessage = ( payload ) => {
   const { color, players } = payload;
 
-  return new MessageEmbed()
+  return new EmbedBuilder()
     .setAuthor({ name: 'The Inbetween Guard' })
     .setTitle('Server Ping')
     .setColor(color)
