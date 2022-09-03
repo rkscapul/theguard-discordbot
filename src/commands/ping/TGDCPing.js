@@ -1,4 +1,4 @@
-import { getSuccessResponseMessage } from './templates/success-response.js';
+import { getSuccessResponseMessage } from './templates/success-response.cjs';
 
 export class TGDCPing {
   constructor (logging, { theGuardBackendServices, serverInfo }) {

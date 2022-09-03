@@ -1,5 +1,5 @@
 import { DIMENSION } from './constants.cjs';
-import { getSuccessResponseMessage } from './templates/success-response.js';
+import { getSuccessResponseMessage } from './templates/success-response.cjs';
 
 export class TGDCCoordinates {
   constructor (logging, { theGuardBackendServices }) {

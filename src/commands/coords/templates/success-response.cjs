@@ -1,9 +1,9 @@
-import { MessageEmbed } from 'discord.js';
+const { EmbedBuilder } = require('discord.js');
 
-export const getSuccessResponseMessage = ( payload ) => {
+module.exports.getSuccessResponseMessage = ( payload ) => {
   const { color, coordinates, executionUuid } = payload;
 
-  return new MessageEmbed()
+  return new EmbedBuilder()
     .setAuthor({ name: 'The Inbetween Guard' })
     .setTitle('Coordinates Calculator')
     .setColor(color)

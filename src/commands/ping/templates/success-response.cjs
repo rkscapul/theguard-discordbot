@@ -1,6 +1,6 @@
-import { MessageEmbed } from 'discord.js';
+const { EmbedBuilder } = require('discord.js');
 
-export const getSuccessResponseMessage = ( payload ) => {
+module.exports.getSuccessResponseMessage = ( payload ) => {
   const { color, players } = payload;
 
   return new MessageEmbed()
