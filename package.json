@@ -3,9 +3,11 @@
   "version": "2.0.0",
   "description": "Powered by Discord JS v14",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cmdd": "npx cross-env NODE_ENV=development node src/managers/commands.cjs"
+    "sd": "npx nodemon --exec npx cross-env NODE_ENV=development node src/index.js | pino-pretty -i pid,hostname -t 'yyyy-mm-dd HH:MM:ss'",
+    "cmdd": "npx cross-env NODE_ENV=development node src/managers/slash-commands.cjs"
   },
   "repository": {
     "type": "git",
@@ -25,7 +27,9 @@
     "date-and-time": "^2.4.1",
     "discord.js": "^14.3.0",
     "dotenv": "^16.0.2",
-    "express.js": "^1.0.0"
+    "express.js": "^1.0.0",
+    "pino": "^7.0.0-rc.9",
+    "pino-pretty": "^9.1.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
