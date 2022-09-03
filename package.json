@@ -1,6 +1,6 @@
 {
   "name": "theguard-discordbot",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Powered by Discord JS v14",
   "main": "index.js",
   "scripts": {
