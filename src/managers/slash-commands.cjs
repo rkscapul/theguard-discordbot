@@ -3,7 +3,7 @@
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const { getSecrets } = require('./values.cjs');
-const { commands } = require('../controllers/commands.cjs');
+const { commands } = require('../controllers/slash-commands.cjs');
 
 const pushCommands = (discordToken, clientId, guildId, commands) => {
   const rest = new REST({ version: 9 }).setToken(discordToken);
