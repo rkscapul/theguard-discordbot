@@ -30,7 +30,7 @@ export default class TheGuardBot {
     this._setPresence(DEFAULT_PRESENCES.startup.message, 
                       DEFAULT_PRESENCES.startup.activity);
 
-    setTimeout(() => { this._cyclePresence(); }, this.discordPresenceInterval);            
+    // setTimeout(() => { this._cyclePresence(); }, this.discordPresenceInterval);
   }
 
   async setupInteractions(interaction) {
@@ -60,7 +60,7 @@ export default class TheGuardBot {
     this.discordClient.login(discordToken);
 
     this._setupCommands(commands);
-    this._setupPresence();
+    // this._setupPresence();
   }
 
   async _setupCommands(commands) {
