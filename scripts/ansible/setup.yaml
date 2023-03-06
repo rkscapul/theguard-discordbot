@@ -1,0 +1,29 @@
+- name: 'Homepage deploy'
+  hosts: 'homepage_main'
+  vars_files:
+    - '~/Homelab/Ansible/variables/vault/hosts-keys.yaml'
+  tasks:
+    - name: 'Creating directories'
+      ansible.builtin.file:
+        path: ~/theguarddiscordbot
+        state: directory
+        mode: '0755'
+    - name: 'Adding key'
+      become: yes
+      apt_key:
+        url: 'https://deb.nodesource.com/gpgkey/nodesource.gpg.key'
+        state: present
+    - name: 'Node - Adding repository'
+      become: yes
+      apt_repository:
+        repo: 'deb https://deb.nodesource.com/node_18.x bullseye main'
+        update_cache: yes
+    - name: 'Installing Nodejs'
+      become: yes
+      apt:
+        update_cache: yes
+        name: nodejs
+        state: present
+    - name: 'Installing global packages'
+      become: yes
+      command: npm i -g pm2

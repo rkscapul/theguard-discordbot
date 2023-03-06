@@ -5,9 +5,16 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "sd": "npx nodemon --exec npx cross-env NODE_ENV=development node src/index.js | pino-pretty -i pid,hostname -t 'yyyy-mm-dd HH:MM:ss'",
-    "cmdd": "npx cross-env NODE_ENV=development node src/managers/slash-commands.cjs"
+    "cmd-dev": "heroku local:run -e .env.development npx cross-env NODE_ENV=development node src/managers/commands.js",
+    "cmd-runtime": "NODE_ENV=production node runtime/commands.js",
+    "cmd-prod": "NODE_ENV=production node src/managers/commands.js",
+    "build-dev": "rimraf runtime/ && mkdir runtime/ && cp -r mode/development/* runtime/",
+    "build-prod-we": "rimraf runtime/ && mkdir runtime/ && cp -r mode/prod-we/* runtime/",
+    "start-runtime": "NODE_ENV=production node runtime/index.js",
+    "start-dev": "npm run build-dev; APP_MODE=development npm run start-runtime",
+    "start-prod": "NODE_ENV=production node src/index.js",
+    "start-prod-we": "npm run start-runtime",
+    "package-zip-we": "npm run build-prod-we && ./scripts/package/zip.sh"
   },
   "repository": {
     "type": "git",
@@ -33,6 +40,7 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "rimraf": "^4.3.0"
   }
 }

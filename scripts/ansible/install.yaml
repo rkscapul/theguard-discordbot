@@ -1,0 +1,14 @@
+- name: 'Homepage deploy'
+  hosts: 'homepage_main'
+  vars_files:
+    - '~/Homelab/Ansible/variables/vault/hosts-keys.yaml'
+  tasks:
+    - name: 'Extracting compressed files'
+      command: 'tar -xzvf ~/homepage-build/build.tar.gz -C ~/homepage-build'
+      register: TAR_OUTPUT
+    - set_fact:
+        output: '{{ TAR_OUTPUT.stdout }}'
+    - debug:
+        var: output
+    - name: 'Running via PM2'
+      command: pm2 start ./homepage-build/ecosystem.config.js
