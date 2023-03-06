@@ -24,4 +24,10 @@ export class TheGuardBackendServices {
       return res.data;
     });
   }
+
+  async getRandomNumber() {
+    return await axios.get(`${this.backendSevicesEndpoint}/games/random-number-generator`).then(res => {
+      return res.data;
+    });
+  }
 }

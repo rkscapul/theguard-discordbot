@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "cmd-dev": "heroku local:run -e .env.development npx cross-env NODE_ENV=development node src/managers/commands.js",
-    "cmd-runtime": "NODE_ENV=production node runtime/commands.js",
+    "cmd-runtime": "NODE_ENV=production APP_MODE=development node runtime/commands.js",
     "cmd-prod": "NODE_ENV=production node src/managers/commands.js",
     "build-dev": "rimraf runtime/ && mkdir runtime/ && cp -r mode/development/* runtime/",
     "build-prod-we": "rimraf runtime/ && mkdir runtime/ && cp -r mode/prod-we/* runtime/",
