@@ -1,4 +1,5 @@
 module.exports.config = {
   ping: true,
-  coords: false,
-}
+  coords: true,
+  rng: true,
+};
